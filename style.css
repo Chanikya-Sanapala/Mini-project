@@ -37,20 +37,25 @@ body{
     pointer-events: none;
     z-index: 1;
 }
-.logo{
+.logo {
     position: absolute;
-    top: 30px;
-    left: 35px;
     z-index: 10;
+    left: 50%;
+    transform: translateX(-50%);
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: clamp(50px, 5vw, 78px);;
+    font-size: clamp(50px, 5vw, 78px);
     font-weight: 400;
     line-height: 0.8;
     letter-spacing: -5px;
-    color: #000
+    color: #f0f0f0;
+    background-color: #050404;
+    width: 100%;
+    height: 60px;
+    text-align: center;
 }
-.logo::after{
-    content: "Café ";
+
+.logo::after {
+    content: "Café";
 }
 .nav-item, .contact{
     position: absolute;
@@ -133,29 +138,27 @@ body{
     font-size: 20px;
     letter-spacing: -0.5px;
 }
-.cart {
-    position: absolute;
-    right: 18px;
-    bottom: 58px;
-    width: 43px;
-    height: 43px;
+.slot {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 20;
+    width: 130px;
+    height: 55px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: #000;
     color: #fff;
     text-decoration: none;
-    font-size: 11px;
-    border-radius: 7px;
-    z-index: 30;
-    transition:
-        transform 0.3s ease,
-        border-radius 0.3s ease;
+    font-size: 13px;
+    border-radius: 10px;
+    transition: .3s ease;
 }
 
-.cart:hover {
-    transform: scale(1.08);
-    border-radius: 10px;
+.slot:hover {
+    transform: scale(1.05);
+    border-radius: 14px;
 }
 @media (max-width: 700px) {
     .page {
@@ -174,10 +177,12 @@ body{
         height: 100vh;
     }
     .logo {
-        top: 8px;
-        left: 20px;
+        
+        left: 50%;
+        transform: translateX(-50%);
         font-size: 48px;
         letter-spacing: -3px;
+        text-align: center;
     }
 
     .signup{
@@ -196,7 +201,7 @@ body{
         top: 63%;
         right: 25%;
     }
-    .cart{
+    .slot{
         right: 16px;
         bottom: 55px;
     }

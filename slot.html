@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Café | Book a Table</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    min-height:100%;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#000;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+.booking-page{
+    position:relative;
+    min-height:100vh;
+    padding:40px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background-image:
+        linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),
+        url("assets/table.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+.logo{
+    position:absolute;
+    top:28px;
+    left:45px;
+    z-index:10;
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:68px;
+    font-weight:400;
+    line-height:.8;
+    letter-spacing:-5px;
+    color:#fff;
+    text-decoration:none;
+}
+
+nav{
+    position:absolute;
+    top:38px;
+    right:45px;
+    z-index:10;
+    display:flex;
+    gap:32px;
+}
+
+nav a{
+    color:#fff;
+    text-decoration:none;
+    font-size:15px;
+    transition:.3s ease;
+}
+
+nav a:hover{
+    opacity:.6;
+}
+
+.booking-card{
+    width:520px;
+    max-width:95%;
+    padding:40px;
+    margin-top:55px;
+    background:rgba(255,255,255,.25);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,.4);
+    border-radius:18px;
+    box-shadow:0 10px 40px rgba(0,0,0,.3);
+}
+
+.tag{
+    display:block;
+    text-align:center;
+    font-size:11px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    margin-bottom:10px;
+}
+
+.booking-card h1{
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:48px;
+    font-weight:400;
+    text-align:center;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    text-align:center;
+    font-size:13px;
+    line-height:1.6;
+    margin-bottom:30px;
+    color:rgba(255,255,255,.9);
+}
+
+.form-group{
+    margin-bottom:20px;
+}
+
+.form-group label{
+    display:block;
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:8px;
+}
+
+.form-group input,
+.form-group select{
+    width:100%;
+    height:45px;
+    padding:0 13px;
+    border:1px solid rgba(255,255,255,.6);
+    border-radius:7px;
+    outline:none;
+    background:rgba(255,255,255,.75);
+    color:#222;
+    font-size:14px;
+}
+
+.form-row{
+    display:flex;
+    gap:15px;
+}
+
+.form-row .form-group{
+    flex:1;
+}
+
+.slots-title{
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:12px;
+}
+
+.slots{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin-bottom:25px;
+}
+
+.slot{
+    position:relative;
+}
+
+.slot input{
+    display:none;
+}
+
+.slot label{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:42px;
+    border:1px solid rgba(255,255,255,.65);
+    border-radius:7px;
+    background:rgba(0,0,0,.2);
+    color:#fff;
+    font-size:13px;
+    cursor:pointer;
+    transition:.25s ease;
+}
+
+.slot label:hover{
+    background:#fff;
+    color:#000;
+}
+
+.slot input:checked + label{
+    background:#000;
+    color:#fff;
+    border-color:#000;
+}
+
+.slot.disabled label{
+    opacity:.35;
+    cursor:not-allowed;
+    text-decoration:line-through;
+}
+
+.book-button{
+    width:100%;
+    height:48px;
+    border:none;
+    border-radius:25px;
+    background:#000;
+    color:#fff;
+    font-size:14px;
+    cursor:pointer;
+    transition:.3s ease;
+}
+
+.book-button:hover{
+    background:#fff;
+    color:#000;
+}
+
+.note{
+    text-align:center;
+    font-size:10px;
+    margin-top:15px;
+    color:rgba(255,255,255,.8);
+}
+
+@media(max-width:700px){
+
+    .booking-page{
+        padding:25px;
+        align-items:flex-start;
+    }
+
+    .logo{
+        top:20px;
+        left:20px;
+        font-size:45px;
+    }
+
+    nav{
+        top:25px;
+        right:18px;
+        gap:12px;
+    }
+
+    nav a{
+        font-size:9px;
+    }
+
+    .booking-card{
+        margin-top:100px;
+        padding:28px 22px;
+    }
+
+    .booking-card h1{
+        font-size:38px;
+    }
+
+    .form-row{
+        flex-direction:column;
+        gap:0;
+    }
+
+    .slots{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:400px){
+
+    .logo{
+        font-size:40px;
+        left:17px;
+    }
+
+    nav{
+        right:14px;
+        gap:7px;
+    }
+
+    nav a{
+        font-size:8px;
+    }
+
+    .booking-card{
+        padding:25px 18px;
+    }
+
+    .booking-card h1{
+        font-size:34px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<section class="booking-page">
+
+<a href="index.html" class="logo">café</a>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="menu.html">Menu</a>
+<a href="aboutus.html">About</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+<div class="booking-card">
+
+<span class="tag">Reservations</span>
+
+<h1>Book a Table</h1>
+
+<p class="subtitle">
+Choose your date, number of guests and preferred time slot.
+</p>
+
+<form>
+
+<div class="form-row">
+
+<div class="form-group">
+<label for="date">Date</label>
+<input type="date" id="date" required>
+</div>
+
+<div class="form-group">
+<label for="guests">Guests</label>
+<select id="guests" required>
+<option value="">Select</option>
+<option>1 Guest</option>
+<option>2 Guests</option>
+<option>3 Guests</option>
+<option>4 Guests</option>
+<option>5 Guests</option>
+<option>6 Guests</option>
+<option>7 Guests</option>
+<option>8 Guests</option>
+</select>
+</div>
+
+</div>
+
+<div class="form-group">
+<label for="name">Name</label>
+<input type="text" id="name" placeholder="Your name" required>
+</div>
+
+<div class="form-group">
+<label for="phone">Phone</label>
+<input type="tel" id="phone" placeholder="Your phone number" required>
+</div>
+
+<div class="slots-title">
+Choose a time slot
+</div>
+
+<div class="slots">
+
+<div class="slot">
+<input type="radio" name="time" id="slot1" value="10:00 AM" required>
+<label for="slot1">10:00 AM</label>
+</div>
+
+<div class="slot">
+<input type="radio" name="time" id="slot2" value="11:00 AM">
+<label for="slot2">11:00 AM</label>
+</div>
+
+<div class="slot">
+<input type="radio" name="time" id="slot3" value="12:00 PM">
+<label for="slot3">12:00 PM</label>
+</div>
+
+<div class="slot">
+<input type="radio" name="time" id="slot4" value="1:00 PM">
+<label for="slot4">1:00 PM</label>
+</div>
+
+<div class="slot">
+<input type="radio" name="time" id="slot5" value="2:00 PM">
+<label for="slot5">2:00 PM</label>
+</div>
+
+<div class="slot">
+<input type="radio" name="time" id="slot6" value="4:00 PM">
+<label for="slot6">4:00 PM</label>
+</div>
+
+<div class="slot">
+<input type="radio" name="time" id="slot7" value="5:00 PM">
+<label for="slot7">5:00 PM</label>
+</div>
+
+<div class="slot">
+<input type="radio" name="time" id="slot8" value="6:00 PM">
+<label for="slot8">6:00 PM</label>
+</div>
+
+<div class="slot">
+<input type="radio" name="time" id="slot9" value="7:00 PM">
+<label for="slot9">7:00 PM</label>
+</div>
+
+<div class="slot">
+<input type="radio" name="time" id="slot10" value="8:00 PM">
+<label for="slot10">8:00 PM</label>
+</div>
+
+<div class="slot">
+<input type="radio" name="time" id="slot11" value="9:00 PM">
+<label for="slot11">9:00 PM</label>
+</div>
+
+<div class="slot disabled">
+<input type="radio" name="time" id="slot12" value="10:00 PM" disabled>
+<label for="slot12">10:00 PM</label>
+</div>
+
+</div>
+
+<button type="submit" class="book-button">
+Confirm Booking
+</button>
+
+<p class="note">
+You will receive a confirmation after submitting your reservation.
+</p>
+
+</form>
+
+</div>
+
+</section>
+
+</body>
+</html>

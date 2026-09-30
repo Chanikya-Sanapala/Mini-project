@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About Us | Café</title>
+
+
+    <style>
+
+    
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+        }
+
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #000;
+            overflow-x: hidden;
+        }
+
+        .about-page {
+
+            position: relative;
+
+            width: 100%;
+            min-height: 100vh;
+
+            background-image: url("assets/aboutus.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+
+            background-repeat: no-repeat;
+
+            overflow: hidden;
+        }
+
+
+        .about-page::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background: rgba(0, 0, 0, 0.12);
+
+            z-index: 1;
+
+            pointer-events: none;
+        }
+
+        .logo {
+
+            position: absolute;
+
+            top: 30px;
+
+            left: 35px;
+
+            z-index: 10;
+
+            font-family: Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: clamp(50px, 5vw, 75px);
+
+            font-weight: 400;
+
+            line-height: 0.8;
+
+            letter-spacing: -5px;
+
+            color: #fff;
+
+            text-decoration: none;
+        }
+
+        nav {
+
+            position: absolute;
+
+            top: 35px;
+
+            right: 35px;
+
+            z-index: 10;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 28px;
+        }
+
+
+        nav a {
+
+            position: relative;
+
+            color: #fff;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: 400;
+
+            transition:
+                color 0.3s ease,
+                transform 0.3s ease;
+        }
+
+
+        nav a::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            bottom: -5px;
+
+            width: 0;
+
+            height: 1px;
+
+            background: #fff;
+
+            transition: width 0.3s ease;
+        }
+
+
+        nav a:hover::after {
+
+            width: 100%;
+        }
+
+
+        nav a:hover {
+
+            transform: translateY(-2px);
+        }
+        .about-content {
+
+            position: absolute;
+
+            z-index: 5;
+
+            width: 420px;
+
+            max-width: 40%;
+
+            left: 8%;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            color: #fff;
+
+            text-align: left;
+
+            padding: 20px 0;
+
+            background: transparent;
+
+            backdrop-filter: none;
+        }
+        .tag {
+
+            display: block;
+
+            margin-bottom: 13px;
+
+            font-size: 11px;
+
+            font-weight: 400;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            color: #fff;
+
+            opacity: 0.85;
+        }
+
+
+        .about-content h1 {
+
+            font-family: Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 48px;
+
+            font-weight: 400;
+
+            line-height: 1;
+
+            letter-spacing: -1.5px;
+
+            color: #fff;
+
+            margin-bottom: 18px;
+        }
+
+        .line {
+
+            width: 40px;
+
+            height: 1px;
+
+            background: #fff;
+
+            margin: 0 0 20px 0;
+
+            opacity: 0.8;
+        }
+
+        .about-content p {
+
+            width: 100%;
+
+            max-width: 390px;
+
+            font-size: 14px;
+
+            font-weight: 400;
+
+            line-height: 1.7;
+
+            letter-spacing: 0.1px;
+
+            color: rgba(255, 255, 255, 0.92);
+
+            margin-bottom: 15px;
+
+            text-shadow:
+                0 1px 5px rgba(0, 0, 0, 0.35);
+        }
+
+
+        .menu-button {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-top: 8px;
+
+            padding: 10px 20px;
+
+            background: #fff;
+
+            color: #000;
+
+            text-decoration: none;
+
+            font-size: 12px;
+
+            border-radius: 25px;
+
+            transition:
+                background 0.3s ease,
+                color 0.3s ease,
+                transform 0.3s ease;
+        }
+
+
+        .menu-button:hover {
+
+            background: #000;
+
+            color: #fff;
+
+            transform: translateY(-2px);
+        }
+
+
+        .cart {
+
+            position: fixed;
+
+            right: 25px;
+
+            bottom: 25px;
+
+            z-index: 20;
+
+            width: 55px;
+
+            height: 55px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #000;
+
+            color: #fff;
+
+            text-decoration: none;
+
+            font-size: 11px;
+
+            border-radius: 10px;
+
+            transition:
+                transform 0.3s ease,
+                border-radius 0.3s ease;
+        }
+
+
+        .cart:hover {
+
+            transform: scale(1.08);
+
+            border-radius: 14px;
+        }
+
+
+        @media (max-width: 900px) {
+
+            .about-content {
+
+                left: 7%;
+
+                width: 400px;
+
+                max-width: 45%;
+            }
+
+
+            .about-content h1 {
+
+                font-size: 44px;
+            }
+
+
+            .about-content p {
+
+                font-size: 13px;
+            }
+
+
+            nav {
+
+                right: 25px;
+
+                gap: 20px;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            .about-page {
+
+                min-height: 100vh;
+
+                background-position: center center;
+            }
+
+            .logo {
+
+                top: 20px;
+
+                left: 22px;
+
+                font-size: 48px;
+
+                letter-spacing: -4px;
+            }
+
+            nav {
+
+                top: 25px;
+
+                right: 18px;
+
+                gap: 13px;
+            }
+
+
+            nav a {
+
+                font-size: 10px;
+            }
+
+
+    
+
+            .about-content {
+
+                width: 75%;
+
+                max-width: none;
+
+                left: 8%;
+
+                top: 52%;
+
+                transform: translateY(-50%);
+
+                padding: 10px 0;
+
+                text-align: left;
+            }
+
+
+            .tag {
+
+                font-size: 9px;
+
+                letter-spacing: 2px;
+
+                margin-bottom: 8px;
+            }
+
+
+            .about-content h1 {
+
+                font-size: 36px;
+
+                line-height: 1;
+
+                letter-spacing: -1px;
+
+                margin-bottom: 12px;
+            }
+
+
+            .line {
+
+                width: 30px;
+
+                margin-bottom: 14px;
+            }
+
+
+            .about-content p {
+
+                max-width: 100%;
+
+                font-size: 11px;
+
+                line-height: 1.6;
+
+                margin-bottom: 10px;
+            }
+
+
+            .menu-button {
+
+                margin-top: 5px;
+
+                padding: 8px 16px;
+
+                font-size: 10px;
+            }
+
+
+            .cart {
+
+                width: 45px;
+
+                height: 45px;
+
+                right: 15px;
+
+                bottom: 15px;
+
+                font-size: 10px;
+
+                border-radius: 8px;
+            }
+        }
+
+
+        /* =========================================
+           SMALL MOBILE
+        ========================================= */
+
+        @media (max-width: 400px) {
+
+            .logo {
+
+                font-size: 42px;
+
+                top: 18px;
+
+                left: 18px;
+            }
+
+
+            nav {
+
+                gap: 9px;
+
+                right: 15px;
+            }
+
+
+            nav a {
+
+                font-size: 9px;
+            }
+
+
+            .about-content {
+
+                left: 7%;
+
+                width: 78%;
+
+                top: 53%;
+            }
+
+
+            .about-content h1 {
+
+                font-size: 32px;
+            }
+
+
+            .about-content p {
+
+                font-size: 10px;
+
+                line-height: 1.55;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <section class="about-page">
+        <a href="index.html" class="logo">
+            café
+        </a>
+        <nav>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="signup.html">
+                Sign Up
+            </a>
+
+            <a href="aboutus.html">
+                About
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </nav>
+
+        <div class="about-content">
+
+            <span class="tag">
+                Our Story
+            </span>
+
+
+            <h1>
+                About Us
+            </h1>
+
+
+            <div class="line"></div>
+
+
+            <p>
+                Welcome to our little corner of coffee and
+                comfort. We created this café as a place
+                where good coffee, delicious food, and
+                beautiful moments come together.
+            </p>
+
+
+            <p>
+                From the first cup of coffee in the morning
+                to relaxed conversations with friends,
+                our space is designed to feel warm,
+                welcoming, and unforgettable.
+            </p>
+
+            <p>
+                Every cup is prepared with care, every dish
+                is made with passion, and every guest is
+                part of our story.
+            </p>
+            <a href="#" class="menu-button">
+                Explore Our Menu
+            </a>
+        </div>
+        <a href="#" class="cart">
+            cart 0
+        </a>
+    </section>
+</body>
+
+</html>

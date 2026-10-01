@@ -160,24 +160,18 @@ body{
     transform: scale(1.05);
     border-radius: 14px;
 }
-@media (max-width: 700px) {
-    .page {
-        padding: 0;
-    }
-    .hero {
-        width: min(100vw, 430px);
-        height: 100vh;
-        min-height: 650px;
-        box-shadow: none;
-    }
-}
 @media (max-width: 480px) {
+
     .hero {
         width: 100vw;
         height: 100vh;
+        background-image: url("assets/mobile.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
     }
+
     .logo {
-        
         left: 50%;
         transform: translateX(-50%);
         font-size: 48px;
@@ -185,41 +179,41 @@ body{
         text-align: center;
     }
 
-    .signup{
-        top: 105px;
-        left: 45px;
+    .signup {
+        top: 16%;
+        left: 12%;
     }
-    .home{
-        top: 380px;
-        right: 180px;
+
+    .home {
+        top: 30%;
+        right: 10%;
     }
-    .aboutus{
-        top: 52%;
-        left: 28px;
+
+    .aboutus {
+        top: 60%;
+        left: 3%;
     }
-    .contact{
-        top: 63%;
-        right: 25%;
+
+    .contact {
+        top: 90%;
+        right: 45%;
     }
-    .slot{
+
+    .slot {
         right: 16px;
         bottom: 55px;
     }
+
     .nav-item:hover,
     .contact:hover {
-
         width: 105px;
         height: 54px;
-
         border-radius: 16px;
-
         transform: translate(-8px, -10px);
     }
 
-
     .nav-item:hover .text,
     .contact:hover .text {
-
         font-size: 19px;
     }
 }

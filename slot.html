@@ -19,20 +19,20 @@ html,body{
 
 body{
     font-family:Arial,Helvetica,sans-serif;
-    background:#000;
-    color:#fff;
+    background:#f7f4ee;
+    color:#222;
     overflow-x:hidden;
 }
 
 .booking-page{
     position:relative;
-    min-height:100vh;
-    padding:40px;
+    min-height:100svh;
+    padding:120px 20px 40px;
     display:flex;
-    align-items:center;
     justify-content:center;
-    background-image:
-        linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),
+    align-items:flex-start;
+    background:
+        linear-gradient(rgba(255,255,255,.18),rgba(255,255,255,.18)),
         url("assets/table.jpg");
     background-size:cover;
     background-position:center;
@@ -41,121 +41,161 @@ body{
 
 .logo{
     position:absolute;
-    top:28px;
-    left:45px;
+    top:25px;
+    left:40px;
     z-index:10;
     font-family:Georgia,"Times New Roman",serif;
-    font-size:68px;
+    font-size:64px;
     font-weight:400;
     line-height:.8;
     letter-spacing:-5px;
-    color:#fff;
+    color:#222;
     text-decoration:none;
 }
 
 nav{
     position:absolute;
-    top:38px;
-    right:45px;
+    top:35px;
+    right:40px;
     z-index:10;
     display:flex;
-    gap:32px;
+    align-items:center;
+    gap:30px;
 }
 
 nav a{
-    color:#fff;
+    color:#222;
     text-decoration:none;
-    font-size:15px;
+    font-size:14px;
     transition:.3s ease;
 }
 
 nav a:hover{
-    opacity:.6;
+    opacity:.5;
 }
 
 .booking-card{
-    width:520px;
-    max-width:95%;
-    padding:40px;
-    margin-top:55px;
-    background:rgba(255,255,255,.25);
-    backdrop-filter:blur(12px);
-    -webkit-backdrop-filter:blur(12px);
-    border:1px solid rgba(255,255,255,.4);
-    border-radius:18px;
-    box-shadow:0 10px 40px rgba(0,0,0,.3);
+    width:560px;
+    max-width:100%;
+    padding:38px;
+    background:rgba(255,255,255,.86);
+    border:1px solid rgba(255,255,255,.8);
+    border-radius:24px;
+    box-shadow:0 15px 45px rgba(0,0,0,.18);
 }
 
 .tag{
     display:block;
     text-align:center;
-    font-size:11px;
+    font-size:10px;
     letter-spacing:4px;
     text-transform:uppercase;
+    color:#806b52;
     margin-bottom:10px;
 }
 
 .booking-card h1{
     font-family:Georgia,"Times New Roman",serif;
-    font-size:48px;
+    font-size:46px;
     font-weight:400;
     text-align:center;
-    margin-bottom:10px;
+    line-height:1;
+    margin-bottom:12px;
 }
 
 .subtitle{
     text-align:center;
     font-size:13px;
     line-height:1.6;
-    margin-bottom:30px;
-    color:rgba(255,255,255,.9);
+    color:#666;
+    margin-bottom:28px;
+}
+
+.form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
 }
 
 .form-group{
-    margin-bottom:20px;
+    margin-bottom:18px;
 }
 
-.form-group label{
+.form-group label,
+.slots-title{
     display:block;
     font-size:11px;
-    letter-spacing:2px;
+    letter-spacing:1.5px;
     text-transform:uppercase;
+    color:#333;
     margin-bottom:8px;
 }
 
 .form-group input,
 .form-group select{
     width:100%;
-    height:45px;
+    height:48px;
     padding:0 13px;
-    border:1px solid rgba(255,255,255,.6);
-    border-radius:7px;
+    border:1px solid #ddd;
+    border-radius:10px;
     outline:none;
-    background:rgba(255,255,255,.75);
+    background:#fff;
     color:#222;
     font-size:14px;
 }
 
-.form-row{
-    display:flex;
-    gap:15px;
+.form-group input:focus,
+.form-group select:focus{
+    border-color:#8c765d;
 }
 
-.form-row .form-group{
-    flex:1;
+.table-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:9px;
+    margin-bottom:20px;
+}
+
+.table-option{
+    position:relative;
+}
+
+.table-option input{
+    display:none;
+}
+
+.table-option label{
+    height:52px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid #ddd;
+    border-radius:10px;
+    background:#fff;
+    color:#333;
+    font-size:12px;
+    cursor:pointer;
+    transition:.25s ease;
+}
+
+.table-option label:hover{
+    border-color:#806b52;
+}
+
+.table-option input:checked + label{
+    background:#806b52;
+    color:#fff;
+    border-color:#806b52;
 }
 
 .slots-title{
-    font-size:11px;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    margin-bottom:12px;
+    margin-top:5px;
 }
 
 .slots{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:10px;
+    gap:9px;
     margin-bottom:25px;
 }
 
@@ -168,42 +208,42 @@ nav a:hover{
 }
 
 .slot label{
+    height:43px;
     display:flex;
     align-items:center;
     justify-content:center;
-    height:42px;
-    border:1px solid rgba(255,255,255,.65);
-    border-radius:7px;
-    background:rgba(0,0,0,.2);
-    color:#fff;
-    font-size:13px;
+    border:1px solid #ddd;
+    border-radius:9px;
+    background:#fff;
+    color:#333;
+    font-size:12px;
     cursor:pointer;
     transition:.25s ease;
 }
 
 .slot label:hover{
-    background:#fff;
-    color:#000;
+    border-color:#806b52;
 }
 
 .slot input:checked + label{
-    background:#000;
+    background:#222;
     color:#fff;
-    border-color:#000;
+    border-color:#222;
 }
 
 .slot.disabled label{
-    opacity:.35;
-    cursor:not-allowed;
+    background:#eee;
+    color:#aaa;
     text-decoration:line-through;
+    cursor:not-allowed;
 }
 
 .book-button{
     width:100%;
-    height:48px;
+    height:50px;
     border:none;
     border-radius:25px;
-    background:#000;
+    background:#222;
     color:#fff;
     font-size:14px;
     cursor:pointer;
@@ -211,83 +251,207 @@ nav a:hover{
 }
 
 .book-button:hover{
-    background:#fff;
-    color:#000;
+    background:#806b52;
 }
 
 .note{
     text-align:center;
     font-size:10px;
-    margin-top:15px;
-    color:rgba(255,255,255,.8);
+    color:#777;
+    margin-top:14px;
+    line-height:1.5;
 }
 
-@media(max-width:700px){
+@media (max-width: 700px) {
 
-    .booking-page{
-        padding:25px;
-        align-items:flex-start;
+    .booking-page {
+        min-height: 100svh;
+        padding: 120px 10px 25px;
+        align-items: flex-start;
     }
 
-    .logo{
-        top:20px;
-        left:20px;
-        font-size:45px;
+    .logo {
+        top: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 43px;
+        letter-spacing: -4px;
     }
 
-    nav{
-        top:25px;
-        right:18px;
-        gap:12px;
+    nav {
+        position: absolute;
+        top: 65px;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 17px;
+        width: max-content;
+        padding: 7px 15px;
+        background: #fff;
+        border: 1px solid rgba(0,0,0,.08);
+        border-radius: 25px;
+        box-shadow: 0 3px 12px rgba(0,0,0,.12);
     }
 
-    nav a{
-        font-size:9px;
+    nav a {
+        color: #000;
+        text-decoration: none;
+        font-size: 9px;
+        white-space: nowrap;
     }
 
-    .booking-card{
-        margin-top:100px;
-        padding:28px 22px;
+    .booking-card {
+        width: 100%;
+        max-width: 390px;
+        padding: 20px 16px;
+        margin: 0;
+        border-radius: 18px;
+        background: rgba(255,255,255,.93);
+        box-shadow: 0 8px 25px rgba(0,0,0,.15);
     }
 
-    .booking-card h1{
-        font-size:38px;
+    .tag {
+        font-size: 8px;
+        letter-spacing: 3px;
+        margin-bottom: 6px;
     }
 
-    .form-row{
-        flex-direction:column;
-        gap:0;
+    .booking-card h1 {
+        font-size: 32px;
+        margin-bottom: 7px;
     }
 
-    .slots{
-        grid-template-columns:repeat(2,1fr);
+    .subtitle {
+        font-size: 10px;
+        line-height: 1.4;
+        margin-bottom: 17px;
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .form-group {
+        margin-bottom: 11px;
+    }
+
+    .form-group label,
+    .slots-title {
+        font-size: 8px;
+        letter-spacing: 1.3px;
+        margin-bottom: 5px;
+    }
+
+    .form-group input,
+    .form-group select {
+        height: 38px;
+        padding: 0 9px;
+        border-radius: 7px;
+        font-size: 11px;
+    }
+
+    .table-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 6px;
+        margin-bottom: 12px;
+    }
+
+    .table-option label {
+        height: 38px;
+        border-radius: 7px;
+        font-size: 9px;
+    }
+
+    .slots {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+        margin-bottom: 15px;
+    }
+
+    .slot label {
+        height: 35px;
+        border-radius: 7px;
+        font-size: 9px;
+    }
+
+    .book-button {
+        height: 42px;
+        border-radius: 21px;
+        font-size: 11px;
+    }
+
+    .note {
+        font-size: 8px;
+        margin-top: 8px;
     }
 }
 
-@media(max-width:400px){
+@media (max-width: 380px) {
 
-    .logo{
-        font-size:40px;
-        left:17px;
+    .booking-page {
+        padding-left: 8px;
+        padding-right: 8px;
     }
 
-    nav{
-        right:14px;
-        gap:7px;
+    .logo {
+        font-size: 40px;
     }
 
-    nav a{
-        font-size:8px;
+    nav {
+        gap: 13px;
     }
 
-    .booking-card{
-        padding:25px 18px;
+    nav a {
+        font-size: 9px;
     }
 
-    .booking-card h1{
-        font-size:34px;
+    .booking-card {
+        max-width: 365px;
+        padding: 18px 13px;
+    }
+
+    .booking-card h1 {
+        font-size: 29px;
+    }
+
+    .subtitle {
+        font-size: 9px;
+    }
+
+    .form-row {
+        gap: 7px;
+    }
+
+    .form-group input,
+    .form-group select {
+        height: 36px;
+        font-size: 10px;
+    }
+
+    .table-grid {
+        gap: 5px;
+    }
+
+    .table-option label {
+        height: 36px;
+        font-size: 8px;
+    }
+
+    .slots {
+        gap: 5px;
+    }
+
+    .slot label {
+        height: 34px;
+        font-size: 8px;
     }
 }
+
 </style>
 </head>
 
@@ -299,7 +463,7 @@ nav a:hover{
 
 <nav>
 <a href="index.html">Home</a>
-<a href="menu.html">Menu</a>
+<a href="Menu.html">Menu</a>
 <a href="aboutus.html">About</a>
 <a href="contact.html">Contact</a>
 </nav>
@@ -311,7 +475,7 @@ nav a:hover{
 <h1>Book a Table</h1>
 
 <p class="subtitle">
-Choose your date, number of guests and preferred time slot.
+Choose your date, guests, table and preferred time.
 </p>
 
 <form>
@@ -326,7 +490,7 @@ Choose your date, number of guests and preferred time slot.
 <div class="form-group">
 <label for="guests">Guests</label>
 <select id="guests" required>
-<option value="">Select</option>
+<option value="">Select Guests</option>
 <option>1 Guest</option>
 <option>2 Guests</option>
 <option>3 Guests</option>
@@ -341,6 +505,54 @@ Choose your date, number of guests and preferred time slot.
 </div>
 
 <div class="form-group">
+<label>Table Number</label>
+
+<div class="table-grid">
+
+<div class="table-option">
+<input type="radio" name="table" id="table1" required>
+<label for="table1">Table 1</label>
+</div>
+
+<div class="table-option">
+<input type="radio" name="table" id="table2">
+<label for="table2">Table 2</label>
+</div>
+
+<div class="table-option">
+<input type="radio" name="table" id="table3">
+<label for="table3">Table 3</label>
+</div>
+
+<div class="table-option">
+<input type="radio" name="table" id="table4">
+<label for="table4">Table 4</label>
+</div>
+
+<div class="table-option">
+<input type="radio" name="table" id="table5">
+<label for="table5">Table 5</label>
+</div>
+
+<div class="table-option">
+<input type="radio" name="table" id="table6">
+<label for="table6">Table 6</label>
+</div>
+
+<div class="table-option">
+<input type="radio" name="table" id="table7">
+<label for="table7">Table 7</label>
+</div>
+
+<div class="table-option">
+<input type="radio" name="table" id="table8">
+<label for="table8">Table 8</label>
+</div>
+
+</div>
+</div>
+
+<div class="form-group">
 <label for="name">Name</label>
 <input type="text" id="name" placeholder="Your name" required>
 </div>
@@ -350,69 +562,67 @@ Choose your date, number of guests and preferred time slot.
 <input type="tel" id="phone" placeholder="Your phone number" required>
 </div>
 
-<div class="slots-title">
-Choose a time slot
-</div>
+<label class="slots-title">Choose a Time Slot</label>
 
 <div class="slots">
 
 <div class="slot">
-<input type="radio" name="time" id="slot1" value="10:00 AM" required>
+<input type="radio" name="time" id="slot1" required>
 <label for="slot1">10:00 AM</label>
 </div>
 
 <div class="slot">
-<input type="radio" name="time" id="slot2" value="11:00 AM">
+<input type="radio" name="time" id="slot2">
 <label for="slot2">11:00 AM</label>
 </div>
 
 <div class="slot">
-<input type="radio" name="time" id="slot3" value="12:00 PM">
+<input type="radio" name="time" id="slot3">
 <label for="slot3">12:00 PM</label>
 </div>
 
 <div class="slot">
-<input type="radio" name="time" id="slot4" value="1:00 PM">
+<input type="radio" name="time" id="slot4">
 <label for="slot4">1:00 PM</label>
 </div>
 
 <div class="slot">
-<input type="radio" name="time" id="slot5" value="2:00 PM">
+<input type="radio" name="time" id="slot5">
 <label for="slot5">2:00 PM</label>
 </div>
 
 <div class="slot">
-<input type="radio" name="time" id="slot6" value="4:00 PM">
+<input type="radio" name="time" id="slot6">
 <label for="slot6">4:00 PM</label>
 </div>
 
 <div class="slot">
-<input type="radio" name="time" id="slot7" value="5:00 PM">
+<input type="radio" name="time" id="slot7">
 <label for="slot7">5:00 PM</label>
 </div>
 
 <div class="slot">
-<input type="radio" name="time" id="slot8" value="6:00 PM">
+<input type="radio" name="time" id="slot8">
 <label for="slot8">6:00 PM</label>
 </div>
 
 <div class="slot">
-<input type="radio" name="time" id="slot9" value="7:00 PM">
+<input type="radio" name="time" id="slot9">
 <label for="slot9">7:00 PM</label>
 </div>
 
 <div class="slot">
-<input type="radio" name="time" id="slot10" value="8:00 PM">
+<input type="radio" name="time" id="slot10">
 <label for="slot10">8:00 PM</label>
 </div>
 
 <div class="slot">
-<input type="radio" name="time" id="slot11" value="9:00 PM">
+<input type="radio" name="time" id="slot11">
 <label for="slot11">9:00 PM</label>
 </div>
 
 <div class="slot disabled">
-<input type="radio" name="time" id="slot12" value="10:00 PM" disabled>
+<input type="radio" name="time" id="slot12" disabled>
 <label for="slot12">10:00 PM</label>
 </div>
 
